@@ -177,6 +177,7 @@ npm link n8n-nodes-quickbooks-sales-receipt
 
 ## Support
 
-For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/yourusername/n8n-nodes-quickbooks-sales-receipt).
+For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/qinxuqiang/n8n-nodes-quickbooks-sales-receipt).
+
 
 
