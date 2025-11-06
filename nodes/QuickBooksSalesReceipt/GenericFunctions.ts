@@ -4,9 +4,9 @@ import type {
 	IExecuteFunctions,
 	IHookFunctions,
 	IHttpRequestMethods,
+	IHttpRequestOptions,
 	ILoadOptionsFunctions,
 	INodePropertyOptions,
-	IRequestOptions,
 	JsonObject,
 } from 'n8n-workflow';
 
@@ -29,12 +29,12 @@ export async function quickBooksApiRequest(
 
 	const credentials = await this.getCredentials<QuickBooksOAuth2Credentials>('quickBooksOAuth2Api');
 
-	const options: IRequestOptions = {
+	const options: IHttpRequestOptions = {
 		headers: {
 			'user-agent': 'n8n',
 		},
 		method,
-		uri: `${credentials.environment === 'sandbox' ? sandboxUrl : productionUrl}${endpoint}`,
+		url: `${credentials.environment === 'sandbox' ? sandboxUrl : productionUrl}${endpoint}`,
 		qs,
 		body,
 		json: true,
@@ -53,7 +53,7 @@ export async function quickBooksApiRequest(
 	}
 
 	try {
-		return await this.helpers.requestOAuth2.call(this, 'quickBooksOAuth2Api', options);
+		return await this.helpers.httpRequestWithAuthentication.call(this, 'quickBooksOAuth2Api', options);
 	} catch (error) {
 		throw new NodeApiError(this.getNode(), error as JsonObject);
 	}
