@@ -1,0 +1,68 @@
+{
+  "name": "n8n-nodes-quickbooks-sales-receipt",
+  "version": "1.0.0",
+  "description": "n8n community node for QuickBooks Online Sales Receipt operations (create and delete)",
+  "keywords": [
+    "n8n",
+    "n8n-community-node-package",
+    "n8n-node",
+    "quickbooks",
+    "quickbooks-online",
+    "sales-receipt",
+    "accounting",
+    "finance"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/qinxuqiang/n8n-nodes-quickbooks-sales-receipt",
+  "author": {
+    "name": "Xuqiang Qin",
+    "email": "russellqin@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qinxuqiang/n8n-nodes-quickbooks-sales-receipt.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && npm run copy-assets",
+    "copy-assets": "cp nodes/QuickBooksSalesReceipt/*.svg dist/nodes/QuickBooksSalesReceipt/ 2>/dev/null || true && cp nodes/QuickBooksSalesReceipt/*.json dist/nodes/QuickBooksSalesReceipt/ 2>/dev/null || true",
+    "dev": "tsc --watch",
+    "format": "prettier --write \"**/*.{ts,json,md}\"",
+    "lint": "eslint . --ext .ts",
+    "test": "jest",
+    "prepublishOnly": "npm run build && npm run test"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/QuickBooksSalesReceipt/QuickBooksSalesReceipt.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/lodash": "^4.17.20",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.5.0",
+    "n8n-workflow": "^1.116.0",
+    "prettier": "^3.0.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
