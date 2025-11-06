@@ -44,7 +44,6 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.0",
-    "@types/lodash": "^4.17.20",
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
@@ -57,9 +56,6 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21"
   },
   "engines": {
     "node": ">=18.0.0"

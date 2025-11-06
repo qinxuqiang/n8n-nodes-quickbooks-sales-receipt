@@ -1,4 +1,3 @@
-import pickBy from 'lodash/pickBy';
 import { NodeApiError } from 'n8n-workflow';
 import type {
 	IDataObject,
@@ -169,7 +168,9 @@ export function populateFields(
 		if (resource === 'salesReceipt') {
 			if (key === 'BillAddr' || key === 'ShipAddr') {
 				const { details } = value as { details: GeneralAddress };
-				body[key] = pickBy(details, (detail) => detail !== '');
+				body[key] = Object.fromEntries(
+					Object.entries(details).filter(([_, detail]) => detail !== '')
+				);
 			} else if (key === 'BillEmail') {
 				body.BillEmail = {
 					Address: value,
